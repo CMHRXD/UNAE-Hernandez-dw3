@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\HomeController;
+use App\http\Controllers\AlumnoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,8 @@ use App\http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'home']);
+
+//Route::resource('alumnos', AlumnoController::class);
+
+Route::get('alumnos', [AlumnoController::class, 'index']);
+
