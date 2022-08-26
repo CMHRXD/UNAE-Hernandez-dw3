@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('direccion');
             $table->integer('telefono');
             $table->integer('c_i');
+            $table->string('correo');
+            $table->string('profesion');
+            $table->date('fecha_nac');
+            $table->string('genero');
 
         });
     }
