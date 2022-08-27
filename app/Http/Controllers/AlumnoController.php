@@ -61,9 +61,10 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit($id)
     {
-        //
+        $alumnos = Alumno::findorFail($id);
+        return view('alumnos.editar', compact('alumnos'));
     }
 
     /**
@@ -73,9 +74,12 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, $id)
     {
-        //
+        $alumnos = request()->except(['_token', '_method']);
+        Alumno::where('id','=',$id)->update($alumnos);
+        return redirect('alumnos');
+
     }
 
     /**
@@ -84,9 +88,10 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        return json_decode($id);
+        Alumno::destroy($id);
+        return redirect('alumnos');
 
     }
 }

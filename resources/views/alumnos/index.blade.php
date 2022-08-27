@@ -1,3 +1,4 @@
+@include('app')
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,6 +30,7 @@
 		  		<th>Telefono</th>
 		  		<th>Direccion</th>
 		  		<th>Genero</th>
+		  		<th colspan="3">Opciones</th>
 		  	</tr>
 		  </thead>
 
@@ -45,11 +47,19 @@
 		  		<td>{{ $a->telefono }}</td>
 		  		<td>{{ $a->direccion }}</td>
 		  		<td>{{ $a->genero }}</td>
+
+		  		<td><a href="{{ url('/alumnos/'.$a->id.'/edit') }}" class="btn btn-primary">Editar</a></td>
 		  		<td>
-		  			<form action="{{ ('/alumnos/destroy/'.$a->id) }}" method="delete">
+
+		  			<form action="{{ ('/alumnos/'.$a->id) }}" method="POST">
+		  				@csrf
+		  				@method('DELETE')
 		  				<button class="btn btn-danger">Eliminar</button>
 		  			</form>
 		  		</td>
+
+		  		<td>
+
 		  	</tr>
 		  	@endforeach
 		  </tbody>

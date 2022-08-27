@@ -1,3 +1,4 @@
+@include('app')
 <!DOCTYPE html>
 <html>
 <head>
