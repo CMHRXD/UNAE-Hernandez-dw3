@@ -18,5 +18,6 @@ use App\http\Controllers\AlumnoController;
 Route::get('/', [HomeController::class, 'home']);
 
 Route::resource('alumnos', AlumnoController::class);
+Route::resource('cursos', CursoController::class);
 
 
